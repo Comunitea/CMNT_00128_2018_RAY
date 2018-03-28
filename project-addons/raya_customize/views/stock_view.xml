@@ -1,0 +1,48 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="vpicktree_inh_customercategory">
+            <field name="name">vpicktree.inh.customercategory</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.vpicktree" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='date']" position="attributes">
+                        <attribute name='invisible'>1</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='date']" position="after">
+                         <field name="date_done"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_picking_form_inh_customercategory">
+            <field name="name">view.picking.form.inh.customercategory</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="arch" type="xml">
+                <field name="group_id" position="after">
+                    <field name="partner_category_id" widget="many2many_tags"/>
+                </field>
+            </field>
+        </record>
+        <record model="ir.ui.view"
+                id="view_picking_internal_search_inh_customercategory">
+            <field name="name">view.picking.internal.search.inh.customercategory</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_internal_search" />
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="partner_category_id"/>
+                </field>
+            </field>
+        </record>
+        <!-- ***************************************************
+             Sobreescribir action albaranes a facturar en ventas
+        *****************************************************-->
+        <record id="sale_stock.outgoing_picking_list_to_invoice" model="ir.actions.act_window">
+            <field name="domain">[('location_id.name','not ilike','provee'),('location_dest_id.name','not ilike','provee')]</field>
+            <field name="context">{'default_type': 'out', 'contact_display': 'partner_address', 'search_default_to_invoice': 1, 'search_default_done': 1}</field>
+        </record>
+
+    </data>
+</openerp>

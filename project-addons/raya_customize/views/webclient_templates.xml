@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="layout" inherit_id="web.layout">
+            <xpath expr="//*[contains(@rel, 'shortcut icon')]" position="attributes">
+                <attribute name="href">/raya_customize/static/src/img/favicon.ico</attribute>
+            </xpath>
+            <xpath expr="//*[contains(@rel, 'shortcut icon')]" position="after">
+                <link rel="icon" href="/raya_customize/static/src/img/favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>

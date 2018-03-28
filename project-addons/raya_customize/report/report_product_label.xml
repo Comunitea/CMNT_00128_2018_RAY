@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="label_document" inherit_id="product_label.label_document">
+            <xpath expr="//*[contains(@class, 'page')]" position="replace">
+                <div class="page">
+                    <style>
+                        body {
+                            color: #000;
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 12px;
+                            letter-spacing: 0.0px;
+                            line-height: 20px;
+                            margin:0;
+                            padding:0;
+                            word-spacing:1px;
+                        }
+                        table {
+                            width: 100%;
+                        }
+                        .image-container {
+                            width: 460px;
+                            text-align: center;
+                            overflow: hidden;
+                        }
+                        .image-cropper {
+                            position: relative;
+                            height: 34px;
+                            overflow: hidden;
+                        }
+                        .bottom {
+                            bottom: 0px;
+                            display: block;
+                            height: auto !important;
+                            max-width: 100%;
+                            position: absolute;
+                        }
+                        .container {
+                            width: 100% !important;
+                            padding-right: 0px !important;
+                            padding-left: 0px !important;
+                        }
+                        .valign-top {
+                            vertical-align: top;
+                        }
+                        .valign-bottom {
+                            vertical-align: bottom;
+                        }
+                        .text-block {
+                            display: block;
+                        }
+                        .img-logo {
+                            display: block;
+                            height: 76px !important;
+                            width: auto !important;
+                        }
+                        .img-barcode {
+                            display: block;
+                            height: auto !important;
+                            width: 240px !important; /* La mitad de ancho que el código de barras generado para evitar pixelación */
+                        }
+                    </style>
+                    <table>
+                        <tr>
+                            <td class="valign-bottom" style="width: 15%;"><img class="img-logo" src="/raya_customize/static/src/img/logo-etiqueta-producto.png"/></td>
+                            <td class="valign-top" style="width: 82%; padding-left: 3%;">
+                                <span class="text-block"><span t-field="o.default_code"/></span>
+                                <strong class="text-block" style="height: 30px; padding-bottom: 1px; width: 230px;" t-field="o.name"/>
+                                <div class="image-cropper">
+                                    <div class="image-container">
+                                        <t t-if="o.ean13"><img class="img-barcode bottom" t-att-src="'data:image/png;base64,%s' % printBarcode(o.ean13, 480, 200)"/></t>
+                                        <t t-if="not o.ean13"><img class="img-barcode bottom" t-att-src="'data:image/png;base64,%s' % printBarcode('', 480, 200)"/></t>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>

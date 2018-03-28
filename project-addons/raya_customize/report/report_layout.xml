@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_styles" inherit_id="print_formats_base.report_styles">
+            <xpath expr="//style" position="after">
+                <style>
+                    .header, .footer, .page, table td, table th {
+                        font-family: 'Roboto';
+                        font-style: normal;
+                        font-weight: 100;
+                    }
+                    .font-courier {
+                        font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+                        font-style: normal;
+                        line-height: 24px;
+                        font-weight: 200;
+                    }
+                    .m0 {
+                        margin: 0px;
+                    }
+                    .mv8 {
+                        margin: 8px 0px;
+                    }
+                    .page.a5 p, .page.a5 table td, .page.a5 table th {
+                        font-size: 11px;
+                    }
+                    .page.a5 h2 {
+                        font-size: 20px;
+                    }
+                    .table.lines thead tr th {
+                        background: #c5cde7 !important;
+                    }
+                    .bg-featured {
+                        background: #c5cde7;
+                    }
+                    span.bg-featured, strong.bg-featured {
+                        display: inline-block; padding: 2px 10px 2px 2px;
+                    }
+                </style>
+            </xpath>
+        </template>
+        <template id="conditions_text">
+            Según la forma de pago acordada, esta deberá ser acreditada mediante justificante bancario indicando no documento. El incumplimiento de la/s fecha/s
+            pactada/s en el pago, causará la perdida de descuentos. Dispone de 30 días para realizar cualquier devolución, aunque por su naturaleza y/o composición,
+            ciertos materiales no podrán ser devueltos, al igual que los artículos bajo demanda. Tanto el embalaje como el material a devolver, deberán estar en idénticas
+            condiciones al momento de la compra, siendo los gastos de transporte asumidos por el cliente.
+        </template>
+    </data>
+</openerp>

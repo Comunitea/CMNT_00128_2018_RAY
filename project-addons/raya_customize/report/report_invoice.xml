@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="print_formats_account.external_layout">
+            <t t-call="print_formats_account.external_layout_header"/>
+            <t t-raw="0"/>
+            <t t-call="print_formats_account.external_layout_footer"/>
+        </template>
+        <template id="print_formats_account.external_layout_header">
+                <div class="header">
+                    <div class="row" style="border-top: 15px solid #244ba3; padding-top: 15px;">
+                        <div class="col-xs-3" style="border-right: 1px solid #ddd;">
+                            <t t-if="o.company_id.logo is None"><h1 t-field="o.company_id.partner_id"/></t>
+                            <t t-if="o.company_id.logo"><img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo" style="max-height: 80px;"/></t>
+                        </div>
+                        <div class="col-xs-3">
+                            <div t-raw="o.company_id.report_header"/>
+                        </div>
+                        <t t-call="print_formats_account.invoice_header"/>
+                    </div>
+                </div>
+        </template>
+        <template id="print_formats_account.external_layout_footer">
+            <div class="footer">
+                <div class="row" style="border-bottom: 15px solid #c5cde7;">
+                    <div class="col-xs-12">
+                        <t t-if="o.company_id.custom_footer">
+                            <div class="text-center" t-raw="o.company_id.rml_footer"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template id="report_invoice_print_formats_account_document" inherit_id="print_formats_account.report_invoice_print_formats_account_document">
+            <xpath expr="//t[@t-call='print_formats_base.external_layout']" position="attributes">
+                <attribute name="t-call">print_formats_account.external_layout</attribute>
+            </xpath>
+            <xpath expr="//t[@t-call='print_formats_account.invoice_header']" position="attributes">
+                <attribute name="t-if">False</attribute>
+            </xpath>
+            <xpath expr="//t[@t-call='print_formats_account.invoice_subheader']" position="attributes">
+                <attribute name="t-if">False</attribute>
+            </xpath>
+        </template>
+        <template id="invoice_header" inherit_id="print_formats_account.invoice_header">
+            <xpath expr="//*[contains(@class, 'row')]" position="replace">
+                <div class="col-xs-6 text-right">
+                    <h2 style="font-size: 30px; margin: 0px !important; padding: 0px !important;">
+                        <strong class="text-uppercase" t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')"><span>Invoice</span><br/></strong>
+                        <strong class="text-uppercase" t-if="o.type == 'out_invoice' and o.state == 'proforma2'"><span>PRO-FORMA</span><br/></strong>
+                        <strong class="text-uppercase" t-if="o.type == 'out_invoice' and o.state == 'draft'"><span>Draft Invoice</span><br/></strong>
+                        <strong class="text-uppercase" t-if="o.type == 'out_invoice' and o.state == 'cancel'"><span>Cancelled Invoice</span><br/></strong>
+                        <strong class="text-uppercase" t-if="o.type == 'out_refund'"><span>Refund</span><br/></strong>
+                        <strong class="text-uppercase" t-if="o.type == 'in_refund'"><span>Supplier Refund</span><br/></strong>
+                        <strong class="text-uppercase" t-if="o.type == 'in_invoice'"><span>Supplier Invoice</span><br/></strong>
+                        <t t-if="o.number">
+                            <span t-field="o.number" style="font-size: 24px;"/>
+                        </t>
+                        <t t-if="not o.number">
+                            <span t-esc="o.id" style="font-size: 24px;"/>
+                        </t>
+                    </h2>
+                    <p style="font-size: 18px;">
+                        <t t-if="o.date_invoice">
+                            <span t-field="o.date_invoice" t-field-options='{"widget":"date"}'/> ·
+                        </t>
+                        <span class="page"/>/<span class="topage"/>
+                    </p>
+                </div>
+                <div class="mv8 col-xs-12">
+                   <t t-call="print_formats_account.invoice_subheader"/>
+                </div>
+            </xpath>
+        </template>
+        <template id="raya_customize_invoice_subheader" inherit_id="print_formats_account.invoice_subheader">
+            <xpath expr="//*[contains(@class, 'details')]" position="replace">
+                <t t-call="print_formats_base.report_styles"/>
+                <div class="col-xs-6 details">
+                    <table class="table table-condensed table-unstyled">
+                        <tbody>
+                            <t t-if="o.partner_id">
+                                <tr>
+                                    <td style="width: 25%;"><span>VAT</span></td>
+                                    <td style="width: 75%;"><strong><span t-field="o.partner_id.vat"/></strong></td>
+                                </tr>
+                                <tr t-if="'mandate_id' in o and o.mandate_id">
+                                    <td><span>IBAN</span></td>
+                                    <td><span class="font-courier" t-esc="hide_account_number(o.mandate_id)"/></td>
+                                </tr>
+                                <tr>
+                                    <td><span>Email</span></td>
+                                    <td><span class="font-courier" t-field="o.partner_id.email"/></td>
+                                </tr>
+                                <tr>
+                                    <td><span>Tel.</span></td>
+                                    <td>
+                                        <t t-if="o.partner_id.phone"><span class="font-courier" t-field="o.partner_id.phone"/></t>
+                                        <t t-if="o.partner_id.mobile">/ <span class="font-courier" t-field="o.partner_id.mobile"/></t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </xpath>
+            <xpath expr="//*[contains(@class, 'partner')]" position="replace">
+                <div class="col-xs-6 partner">
+                    <table class="table table-condensed table-unstyled">
+                        <tbody>
+                            <tr t-if="o.partner_id">
+                                <td style="width: 75%;">
+                                    <strong t-if="o.partner_id.name" t-field="o.partner_id.name"/>
+                                </td>
+                                <td style="width: 25%;" class="text-right">
+                                    <strong t-if="o.partner_id.id" t-field="o.partner_id.id"/>
+                                </td>
+                            </tr>
+                            <tr t-if="o.partner_id">
+                                <td>
+                                    <t t-if="o.partner_id.street"><span class="font-courier" t-field="o.partner_id.street"/><br/></t>
+                                    <t t-if="o.partner_id.street2"><span class="font-courier" t-field="o.partner_id.street2"/><br/></t>
+                                    <t t-if="o.partner_id.zip or o.partner_id.city">
+                                        <t t-if="o.partner_id.zip"><span class="font-courier" t-field="o.partner_id.zip"/></t>
+                                        <t t-if="o.partner_id.city"><span class="font-courier" t-field="o.partner_id.city"/></t>
+                                        <br/>
+                                    </t>
+                                    <t t-if="o.partner_id.state_id or o.partner_id.country_id">
+                                        <t t-if="o.partner_id.state_id"><span class="font-courier" t-field="o.partner_id.state_id.name"/></t>
+                                        <t t-if="o.partner_id.country_id">(<span class="font-courier" t-field="o.partner_id.country_id.name"/>)</t>
+                                        <br/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </xpath>
+        </template>
+        <template id="invoice_lines" inherit_id="print_formats_account.invoice_lines">
+            <xpath expr="//*[contains(@class, 'row')]" position="replace">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <table class="table table-condensed lines m0">
+                            <thead>
+                                <tr>
+                                    <th><span>Ref./Description</span></th>
+                                    <th class="text-right"><span>Uds.</span></th>
+                                    <th class="text-right"><span>P.V.P.</span></th>
+                                    <th class="text-right"><span>Dto.</span></th>
+                                    <th class="text-right"><span>Line total</span></th>
+                                    <th class="text-center"><span>IVA</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="invoice_tbody">
+                                <t t-set="lines_mix" t-value="get_lines_grouped_by_picking(o)"/>
+                                <t t-set="pickings" t-value="lines_mix[0]"/>
+                                <t t-set="lines" t-value="lines_mix[1]"/>
+                                <t t-set="picking_ids" t-value="lines_mix[2]"/>
+                                <t t-foreach="picking_ids" t-as="key">
+                                    <t t-set="picking" t-value="pickings[key]"/>
+                                    <tr t-if="picking">
+                                        <td colspan="5">
+                                            <small>
+                                                <strong>
+                                                    <span t-field="picking.date" t-field-options='{"widget":"date"}'/>
+                                                    <t t-if="picking.picking_type_id.code == 'outgoing'">Picking</t>
+                                                    <t t-if="picking.picking_type_id.code != 'outgoing'">Return</t>
+                                                    <t t-esc="picking.name"/>
+                                                    <t t-if="picking.origin"><span> Source </span><t t-esc="picking.origin"/></t>
+                                                </strong>
+                                            </small>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="not picking and len(pickings) > 1 and len(lines[key]) > 0">
+                                        <td colspan="7">
+                                            <strong>Services</strong>
+                                        </td>
+                                    </tr>
+                                    <tr t-foreach="lines[key]" t-as="l">
+                                        <td><span class="font-courier" t-field="l.name"/></td>
+                                        <td class="text-right">
+                                            <t t-if="'Araceli' in o.company_id.name or 'Joyer' in o.company_id.name">
+                                                <span class="font-courier" t-esc="round(l.quantity, 3)"/>
+                                            </t>
+                                            <t t-if="'Rafael' in o.company_id.name or 'Dental' in o.company_id.name">
+                                                <span class="font-courier" t-esc="round(l.quantity, 2)"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="font-courier" t-esc="monetary_format(l.price_unit)"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-if="l.discount > 0">
+                                                <span class="font-courier" t-field="l.discount"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="font-courier" t-esc="monetary_format(l.price_subtotal)"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="font-courier" t-esc="', '.join(map(lambda x: str(int(x.amount * 100)), l.invoice_line_tax_id))"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+        <template id="invoice_totals" inherit_id="print_formats_account.invoice_totals">
+            <xpath expr="//*[contains(@class, 'row')]" position="replace">
+                <hr class="mv8" style="border-top: 1px solid #000;"/>
+                <div class="row">
+                    <div class="col-xs-7">
+                        <table class="table table-condensed table-unstyled">
+                            <tbody>
+                                <tr t-foreach="o.tax_line" t-as="t">
+                                    <t t-set="tax_amount" t-value="get_tax_amount(o.type, t.tax_code_id.id)"></t>
+                                    <td style="width: 19%;">
+                                        <t t-set="tax_description" t-value="get_tax_description(t.name)"/>
+                                        <span>Basis to</span> <span t-esc="tax_amount"/>%
+                                    </td>
+                                    <td style="width: 16%;" class="font-courier text-right">
+                                        <span t-esc="monetary_format(t.base)"/>
+                                    </td>
+                                    <td style="width: 15%;"></td>
+                                    <td style="width: 25%;">
+                                        <t t-set="tax_description" t-value="get_tax_description(t.name)"/>
+                                        <span>Sum to</span> <span t-esc="tax_amount"/>%
+                                    </td>
+                                    <td style="width: 16%;" class="font-courier text-right">
+                                        <span t-esc="monetary_format(t.amount)"/>
+                                    </td>
+                                    <td style="width: 9%;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Basis Sum</td>
+                                    <td class="font-courier text-right">
+                                        <span t-esc="monetary_format(o.amount_untaxed)"/>
+                                    </td>
+                                    <td></td>
+                                    <td>Taxes Sum</td>
+                                    <td class="font-courier text-right">
+                                        <span t-esc="monetary_format(o.amount_tax)"/>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-5">
+                        <table class="table table-condensed table-unstyled">
+                            <tbody>
+                                <tr t-foreach="get_payment_terms(o)" t-as="pt">
+                                    <td><span>Expiration</span> <span t-esc="pt_index + 1"/></td>
+                                    <td><span class="font-courier" t-esc="str_to_date(pt[0])"/></td>
+                                    <td><span>Amount</span></td>
+                                    <td class="text-right">
+                                        <t t-set="pt_amount" t-value="monetary_format(pt[1])"/>
+                                        <span class="font-courier" t-esc="pt_amount"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr class="mv8"/>
+            </xpath>
+        </template>
+        <template id="invoice_taxes" inherit_id="print_formats_account.invoice_taxes">
+            <xpath expr="//t[@t-if='o.tax_line']" position="attributes">
+                <attribute name="t-if">False</attribute>
+            </xpath>
+        </template>
+        <template id="invoice_footer" inherit_id="print_formats_account.invoice_footer">
+            <xpath expr="//*[contains(@class, 'row')]" position="replace">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <table class="table table-condensed table-unstyled m0">
+                            <tbody>
+                                <tr t-if="'payment_mode_id' in o and o.payment_mode_id">
+                                    <td style="width: 23%;"><span>Payment Mode</span></td>
+                                    <td style="width: 77%;">
+                                        <span class="font-courier" t-field="o.payment_mode_id.name"/><t t-if="'ransferencia' in o.payment_mode_id.name"><br/><span class="font-courier" t-field="o.payment_mode_id.bank_id.acc_number"/></t>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.fiscal_position">
+                                    <td><span>Fiscal Position</span></td>
+                                    <td><span class="font-courier" t-field="o.fiscal_position"/></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-5">
+                        <table class="table table-condensed table-unstyled">
+                            <tr>
+                                <td style="vertical-align: middle;"><strong class="text-uppercase" style="font-size: 14px;">Invoice Total</strong></td>
+                                <td style="vertical-align: middle;" class="text-right">
+                                    <strong><span t-field="o.amount_total" style="font-size: 24px;"/> <span style="background: black; color: white; display: inline-block; font-size: 20px; padding: 0px 8px;">€</span></strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p t-if="o.comment">
+                            <strong>Comment</strong><br/>
+                            <span class="font-courier" t-field="o.comment"/>
+                        </p>
+                        <hr style="margin: 10px 0px;"/>
+                        <p class="text-justify" style="font-size: 10px;">
+                            <t t-call="raya_customize.conditions_text"/>
+                        </p>
+                        <hr style="margin: 10px 0px;"/>
+                        <p class="text-justify" style="font-size: 8px;">
+                            <t t-if="'Rafael' in o.company_id.name or 'Dental' in o.company_id.name">
+                                A efectos de lo dispuesto en la Ley Orgánica de Protección de Datos de Carácter Personal 15/1999, de 13 de Diciembre, le informamos que cuantos datos personales haya facilitado a RAFAEL RAYA ALCALÁ, con NIF. 30793218J, han sido incluidos en los
+                                ficheros de datos de carácter personal, creados y mantenidos por nuestra empresa, con la finalidad de cumplir los compromisos entre las partes, la gestión administrativa, facturación y envío de informaciones comerciales relacionadas con nuestra entidad.
+                                Cualquier otro uso de los datos personales requerirá del previo y expreso consentimiento del interesado. Podrá ejercer en cualquier momento, sus derechos de acceso, rectificación, cancelación y oposición de sus datos personales, en la dirección de la
+                                empresa, sita en C/ Esmeralda, s/n, C.P.14014 de Córdoba.
+                            </t>
+                            <t t-if="'Araceli' in o.company_id.name or 'Joyer' in o.company_id.name">
+                                A efectos de lo dispuesto en la Ley Orgánica de Protección de Datos de Carácter Personal 15/1999, de 13 de Diciembre, le informamos que cuantos datos personales haya facilitado a ARACELI RAYA ALCALÁ, con NIF. 30530530P, han sido incluidos en los
+                                ficheros de datos de carácter personal, creados y mantenidos por nuestra empresa, con la finalidad de cumplir los compromisos entre las partes, la gestión administrativa, facturación y envío de informaciones comerciales relacionadas con nuestra entidad.
+                                Cualquier otro uso de los datos personales requerirá del previo y expreso consentimiento del interesado. Podrá ejercer en cualquier momento, sus derechos de acceso, rectificación, cancelación y oposición de sus datos personales, en la dirección de la
+                                empresa, sita en C/ Esmeralda, s/n, C.P.14014 de Córdoba.
+                            </t>
+                        </p>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- inherited: sale.view_order_form -->
+        <record id="sale_order_unit2package_form_view" model="ir.ui.view">
+            <field name="name">sale_order_unit_package.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='order_line']/form//label[@for='product_uom_qty']" position="before">
+                        <field name="product_qty_package"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="raya_view_order_line_tree" model="ir.ui.view">
+            <field name="name">raya.sale.order.line.tree</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_order_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="order_partner_id" position="after">
+                    <field name="date_order"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

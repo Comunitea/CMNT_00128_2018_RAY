@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="discount_pricelist_partnerinfo_tree_view"
+                model="ir.ui.view">
+            <field name="name">discount.pricelist.partnerinfo.tree</field>
+            <field name="model">pricelist.partnerinfo</field>
+            <field name="inherit_id"
+                   ref="product_pricelist_partnerinfo.pricelist_partnerinfo_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="min_quantity" position="after">
+                    <field name="discount"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
