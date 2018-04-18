@@ -43,7 +43,7 @@ class AccountInvoice(models.Model):
         old_lines = self.env['account.invoice.line'].browse(line_ids)
 
         invoices_info = {new_invoice.id: invoices.ids}
-        old_pickings = []
+        old_pickings = self.env['stock.picking']
         for invoice_id, old_invoice_ids in invoices_info.iteritems():
             for old_line in old_lines:
                 for move in old_line.move_line_ids:
@@ -54,7 +54,7 @@ class AccountInvoice(models.Model):
                         if not new_line.move_line_ids:
                             new_line.move_line_ids = [(6, 0, [move.id])]
                         move.invoice_line_id = new_line.id
-                    if move.picking_id not in old_pickings:
-                        old_pickings.append(move.picking_id)
+                    old_pickings += move.picking_id
         new_invoice.picking_ids = [(4, p.id) for p in old_pickings]
+        old_pickings.write({'invoice_state': 'invoiced'})
         return invoices_info
