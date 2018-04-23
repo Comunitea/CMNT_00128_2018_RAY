@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* raya_customize
+#       * raya_customize
 #
 msgid ""
 msgstr ""
@@ -201,7 +201,7 @@ msgstr "IVA"
 #. module: raya_customize
 #: field:pos.category,internal_categ_id:0
 msgid "Internal category Id"
-msgstr "Internal category Id"
+msgstr "Categ. interna"
 
 #. module: raya_customize
 #: view:website:print_formats_account.invoice_header
@@ -280,6 +280,11 @@ msgstr "Plantilla de producto"
 #: model:ir.model,name:raya_customize.model_pos_category
 msgid "Public Category"
 msgstr "Categoría pública"
+
+#. module: raya_customize
+#: field:stock.move,qty_available:0
+msgid "Qty available"
+msgstr "Cant. a mano"
 
 #. module: raya_customize
 #: view:website:print_formats_account.invoice_lines
@@ -398,9 +403,18 @@ msgstr "Transferencia"
 #. module: raya_customize
 #: view:website:print_formats_account.invoice_lines
 #: view:website:print_formats_sale.saleorder_lines
-#: view:website:print_formats_stock.picking_lines
 msgid "Uds."
 msgstr "Uds."
+
+#. module: raya_customize
+#: view:website:print_formats_stock.picking_lines
+msgid "Uds. Ped."
+msgstr "Uds. Ped."
+
+#. module: raya_customize
+#: view:website:print_formats_stock.picking_lines
+msgid "Uds. Serv."
+msgstr "Uds. Serv."
 
 #. module: raya_customize
 #: field:product.template,product_qty_package:0

@@ -36,6 +36,18 @@
                 </field>
             </field>
         </record>
+
+        <record id="view_move_picking_tree_add_qty_avail" model="ir.ui.view">
+            <field name="name">stock.move.tree.add_qty_avail</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_picking_tree"/>
+            <field name="arch" type="xml">
+                <field name="location_dest_id" position="after">
+                    <field name="qty_available"/>
+                </field>
+            </field>
+        </record>
+
         <!-- ***************************************************
              Sobreescribir action albaranes a facturar en ventas
         *****************************************************-->
