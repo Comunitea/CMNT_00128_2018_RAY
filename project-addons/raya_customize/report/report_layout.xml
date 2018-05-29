@@ -5,12 +5,12 @@
             <xpath expr="//style" position="after">
                 <style>
                     .header, .footer, .page, table td, table th {
-                        font-family: 'Roboto';
+                        font-family: 'NimbusSanL';
                         font-style: normal;
                         font-weight: 100;
                     }
                     .font-courier {
-                        font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+                        font-family: 'NimbusSanL';
                         font-style: normal;
                         line-height: 24px;
                         font-weight: 200;
