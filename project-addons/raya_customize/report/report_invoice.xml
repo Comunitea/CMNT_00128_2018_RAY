@@ -8,7 +8,7 @@
         </template>
         <template id="print_formats_account.external_layout_header">
                 <div class="header">
-                    <div class="row" style="border-top: 15px solid #244ba3; padding-top: 15px;">
+                    <div class="row" style="padding-top: 7mm;">
                         <div class="col-xs-3" style="border-right: 1px solid #ddd;">
                             <t t-if="o.company_id.logo is None"><h1 t-field="o.company_id.partner_id"/></t>
                             <t t-if="o.company_id.logo"><img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo" style="max-height: 80px;"/></t>
@@ -22,7 +22,7 @@
         </template>
         <template id="print_formats_account.external_layout_footer">
             <div class="footer">
-                <div class="row" style="border-bottom: 15px solid #c5cde7;">
+                <div class="row" style="border-bottom: 5mm solid #244ba3;">
                     <div class="col-xs-12">
                         <t t-if="o.company_id.custom_footer">
                             <div class="text-center" t-raw="o.company_id.rml_footer"/>
@@ -318,16 +318,16 @@
                         <hr style="margin: 10px 0px;"/>
                         <p class="text-justify" style="font-size: 8px;">
                             <t t-if="'Rafael' in o.company_id.name or 'Dental' in o.company_id.name">
-                                A efectos de lo dispuesto en la Ley Orgánica de Protección de Datos de Carácter Personal 15/1999, de 13 de Diciembre, le informamos que cuantos datos personales haya facilitado a RAFAEL RAYA ALCALÁ, con NIF. 30793218J, han sido incluidos en los
-                                ficheros de datos de carácter personal, creados y mantenidos por nuestra empresa, con la finalidad de cumplir los compromisos entre las partes, la gestión administrativa, facturación y envío de informaciones comerciales relacionadas con nuestra entidad.
-                                Cualquier otro uso de los datos personales requerirá del previo y expreso consentimiento del interesado. Podrá ejercer en cualquier momento, sus derechos de acceso, rectificación, cancelación y oposición de sus datos personales, en la dirección de la
-                                empresa, sita en C/ Esmeralda, s/n, C.P.14014 de Córdoba.
+                                A efectos de lo dispuesto en el RGPD 2016/679, le informamos que cuantos datos personales haya facilitado a RAFAEL RAYA ALCALÁ (RAYA DENTAL), con CIF: ES30793218J, han sido incluidos en nuestra base de datos, con la finalidad de cumplir los
+                                compromisos entre las partes, la gestión administrativa, facturación y envío de informaciones comerciales relacionadas con nuestra entidad. Cualquier otro uso de los datos personales requerirá del previo y expreso consentimiento del interesado.
+                                Este podrá ejercer en cualquier momento, sus derechos de acceso, rectificación, supresión y portabilidad de sus datos, y la limitación u oposición a su tratamiento, a retirar el consentimiento prestado y a reclamar a la AEPD., en la dirección
+                                de la empresa, sita en Calle Esmeralda, s/n, C.P.14014, Córdoba, España.
                             </t>
                             <t t-if="'Araceli' in o.company_id.name or 'Joyer' in o.company_id.name">
-                                A efectos de lo dispuesto en la Ley Orgánica de Protección de Datos de Carácter Personal 15/1999, de 13 de Diciembre, le informamos que cuantos datos personales haya facilitado a ARACELI RAYA ALCALÁ, con NIF. 30530530P, han sido incluidos en los
-                                ficheros de datos de carácter personal, creados y mantenidos por nuestra empresa, con la finalidad de cumplir los compromisos entre las partes, la gestión administrativa, facturación y envío de informaciones comerciales relacionadas con nuestra entidad.
-                                Cualquier otro uso de los datos personales requerirá del previo y expreso consentimiento del interesado. Podrá ejercer en cualquier momento, sus derechos de acceso, rectificación, cancelación y oposición de sus datos personales, en la dirección de la
-                                empresa, sita en C/ Esmeralda, s/n, C.P.14014 de Córdoba.
+                                A efectos de lo dispuesto en el RGPD 2016/679, le informamos que cuantos datos personales haya facilitado a ARACELI RAYA ALCALÁ (RAYA DIV. JOYERIA), con CIF: ES30530530P, han sido incluidos en nuestra base de datos, con la finalidad de cumplir
+                                los compromisos entre las partes, la gestión administrativa, facturación y envío de informaciones comerciales relacionadas con nuestra entidad. Cualquier otro uso de los datos personales requerirá del previo y expreso consentimiento del interesado.
+                                Este podrá ejercer en cualquier momento, sus derechos de acceso, rectificación, supresión y portabilidad de sus datos, y la limitación u oposición a su tratamiento, a retirar el consentimiento prestado y a reclamar a la AEPD., en la dirección de la
+                                empresa, sita en Calle Esmeralda, s/n, C.P.14014, Córdoba, España
                             </t>
                         </p>
                     </div>
