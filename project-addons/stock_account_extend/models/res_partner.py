@@ -32,7 +32,6 @@ class Partner(models.Model):
             'default_res_model': self._name,
             'default_res_id': self.id,
             'default_partner_id': self.id,
-            'search_default_partner_id': self.id,
         }
         return {
             'name': _('Pickings to Invoice'),

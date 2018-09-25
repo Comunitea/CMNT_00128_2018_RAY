@@ -68,8 +68,7 @@
                                 <strong class="text-block" style="height: 30px; padding-bottom: 1px; width: 230px;" t-field="o.name"/>
                                 <div class="image-cropper">
                                     <div class="image-container">
-                                        <t t-if="o.ean13"><img class="img-barcode bottom" t-att-src="'data:image/png;base64,%s' % printBarcode(o.ean13, 480, 200)"/></t>
-                                        <t t-if="not o.ean13"><img class="img-barcode bottom" t-att-src="'data:image/png;base64,%s' % printBarcode('', 480, 200)"/></t>
+                                        <t t-if="o.default_code"><img class="img-barcode bottom" t-att-src="'data:image/png;base64,%s' % printBarcode(o.default_code, 480, 200)"/></t>
                                     </div>
                                 </div>
                             </td>
