@@ -22,3 +22,7 @@ class StockMove(models.Model):
         Float('Qty available', readonly=True,
               related='product_id.qty_available',
               digits_compute=dp.get_precision('Product Unit of Measure'))
+    
+    virtual_available = fields.\
+        Float('Forecast Quantity', readonly=True,
+              related='product_id.virtual_available')

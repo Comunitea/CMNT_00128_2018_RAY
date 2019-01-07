@@ -45,6 +45,9 @@
                 <field name="location_dest_id" position="after">
                     <field name="qty_available"/>
                 </field>
+                <xpath expr="//field[@name='product_uom']" position="before">
+                    <field name="virtual_available"/>
+                </xpath>
             </field>
         </record>
 
