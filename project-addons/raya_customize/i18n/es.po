@@ -1,21 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#       * raya_customize
+#	* raya_customize
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-03 10:46+0000\n"
-"PO-Revision-Date: 2017-04-03 12:51+0100\n"
-"Last-Translator:Trey\n"
-"Language-Team: Trey <info@trey.es>\n"
+"POT-Creation-Date: 2019-01-07 12:50+0000\n"
+"PO-Revision-Date: 2019-01-07 12:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
-"X-Generator: Poedit 1.5.4\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: raya_customize
 #: view:website:web.layout
@@ -24,69 +22,25 @@ msgstr "/raya_customize/static/src/img/favicon.ico"
 
 #. module: raya_customize
 #: view:website:print_formats_account.invoice_footer
-msgid ""
-"A efectos de lo dispuesto en la Ley Orgánica de Protección de Datos de "
-"Carácter Personal 15/1999, de 13 de Diciembre, le informamos que cuantos "
-"datos personales haya facilitado a ARACELI RAYA ALCALÁ, con NIF. 30530530P, "
-"han sido incluidos en los\n"
-"                                ficheros de datos de carácter personal, "
-"creados y mantenidos por nuestra empresa, con la finalidad de cumplir los "
-"compromisos entre las partes, la gestión administrativa, facturación y envío "
-"de informaciones comerciales relacionadas con nuestra entidad.\n"
-"                                Cualquier otro uso de los datos personales "
-"requerirá del previo y expreso consentimiento del interesado. Podrá ejercer "
-"en cualquier momento, sus derechos de acceso, rectificación, cancelación y "
-"oposición de sus datos personales, en la dirección de la\n"
-"                                empresa, sita en C/ Esmeralda, s/n, C."
-"P.14014 de Córdoba."
-msgstr ""
-"A efectos de lo dispuesto en la Ley Orgánica de Protección de Datos de "
-"Carácter Personal 15/1999, de 13 de Diciembre, le informamos que cuantos "
-"datos personales haya facilitado a ARACELI RAYA ALCALÁ, con NIF. 30530530P, "
-"han sido incluidos en los\n"
-"                                ficheros de datos de carácter personal, "
-"creados y mantenidos por nuestra empresa, con la finalidad de cumplir los "
-"compromisos entre las partes, la gestión administrativa, facturación y envío "
-"de informaciones comerciales relacionadas con nuestra entidad.\n"
-"                                Cualquier otro uso de los datos personales "
-"requerirá del previo y expreso consentimiento del interesado. Podrá ejercer "
-"en cualquier momento, sus derechos de acceso, rectificación, cancelación y "
-"oposición de sus datos personales, en la dirección de la\n"
-"                                empresa, sita en C/ Esmeralda, s/n, C."
-"P.14014 de Córdoba."
+msgid "A efectos de lo dispuesto en el RGPD 2016/679, le informamos que cuantos datos personales haya facilitado a ARACELI RAYA ALCALÁ (RAYA DIV. JOYERIA), con CIF: ES30530530P, han sido incluidos en nuestra base de datos, con la finalidad de cumplir\n"
+"                                los compromisos entre las partes, la gestión administrativa, facturación y envío de informaciones comerciales relacionadas con nuestra entidad. Cualquier otro uso de los datos personales requerirá del previo y expreso consentimiento del interesado.\n"
+"                                Este podrá ejercer en cualquier momento, sus derechos de acceso, rectificación, supresión y portabilidad de sus datos, y la limitación u oposición a su tratamiento, a retirar el consentimiento prestado y a reclamar a la AEPD., en la dirección de la\n"
+"                                empresa, sita en Calle Esmeralda, s/n, C.P.14014, Córdoba, España"
+msgstr "A efectos de lo dispuesto en el RGPD 2016/679, le informamos que cuantos datos personales haya facilitado a ARACELI RAYA ALCALÁ (RAYA DIV. JOYERIA), con CIF: ES30530530P, han sido incluidos en nuestra base de datos, con la finalidad de cumplir\n"
+"                                los compromisos entre las partes, la gestión administrativa, facturación y envío de informaciones comerciales relacionadas con nuestra entidad. Cualquier otro uso de los datos personales requerirá del previo y expreso consentimiento del interesado.\n"
+"                                Este podrá ejercer en cualquier momento, sus derechos de acceso, rectificación, supresión y portabilidad de sus datos, y la limitación u oposición a su tratamiento, a retirar el consentimiento prestado y a reclamar a la AEPD., en la dirección de la\n"
+"                                empresa, sita en Calle Esmeralda, s/n, C.P.14014, Córdoba, España"
 
 #. module: raya_customize
 #: view:website:print_formats_account.invoice_footer
-msgid ""
-"A efectos de lo dispuesto en la Ley Orgánica de Protección de Datos de "
-"Carácter Personal 15/1999, de 13 de Diciembre, le informamos que cuantos "
-"datos personales haya facilitado a RAFAEL RAYA ALCALÁ, con NIF. 30793218J, "
-"han sido incluidos en los\n"
-"                                ficheros de datos de carácter personal, "
-"creados y mantenidos por nuestra empresa, con la finalidad de cumplir los "
-"compromisos entre las partes, la gestión administrativa, facturación y envío "
-"de informaciones comerciales relacionadas con nuestra entidad.\n"
-"                                Cualquier otro uso de los datos personales "
-"requerirá del previo y expreso consentimiento del interesado. Podrá ejercer "
-"en cualquier momento, sus derechos de acceso, rectificación, cancelación y "
-"oposición de sus datos personales, en la dirección de la\n"
-"                                empresa, sita en C/ Esmeralda, s/n, C."
-"P.14014 de Córdoba."
-msgstr ""
-"A efectos de lo dispuesto en la Ley Orgánica de Protección de Datos de "
-"Carácter Personal 15/1999, de 13 de Diciembre, le informamos que cuantos "
-"datos personales haya facilitado a RAFAEL RAYA ALCALÁ, con NIF. 30793218J, "
-"han sido incluidos en los\n"
-"                                ficheros de datos de carácter personal, "
-"creados y mantenidos por nuestra empresa, con la finalidad de cumplir los "
-"compromisos entre las partes, la gestión administrativa, facturación y envío "
-"de informaciones comerciales relacionadas con nuestra entidad.\n"
-"                                Cualquier otro uso de los datos personales "
-"requerirá del previo y expreso consentimiento del interesado. Podrá ejercer "
-"en cualquier momento, sus derechos de acceso, rectificación, cancelación y "
-"oposición de sus datos personales, en la dirección de la\n"
-"                                empresa, sita en C/ Esmeralda, s/n, C."
-"P.14014 de Córdoba."
+msgid "A efectos de lo dispuesto en el RGPD 2016/679, le informamos que cuantos datos personales haya facilitado a RAFAEL RAYA ALCALÁ (RAYA DENTAL), con CIF: ES30793218J, han sido incluidos en nuestra base de datos, con la finalidad de cumplir los\n"
+"                                compromisos entre las partes, la gestión administrativa, facturación y envío de informaciones comerciales relacionadas con nuestra entidad. Cualquier otro uso de los datos personales requerirá del previo y expreso consentimiento del interesado.\n"
+"                                Este podrá ejercer en cualquier momento, sus derechos de acceso, rectificación, supresión y portabilidad de sus datos, y la limitación u oposición a su tratamiento, a retirar el consentimiento prestado y a reclamar a la AEPD., en la dirección\n"
+"                                de la empresa, sita en Calle Esmeralda, s/n, C.P.14014, Córdoba, España."
+msgstr "A efectos de lo dispuesto en el RGPD 2016/679, le informamos que cuantos datos personales haya facilitado a RAFAEL RAYA ALCALÁ (RAYA DENTAL), con CIF: ES30793218J, han sido incluidos en nuestra base de datos, con la finalidad de cumplir los\n"
+"                                compromisos entre las partes, la gestión administrativa, facturación y envío de informaciones comerciales relacionadas con nuestra entidad. Cualquier otro uso de los datos personales requerirá del previo y expreso consentimiento del interesado.\n"
+"                                Este podrá ejercer en cualquier momento, sus derechos de acceso, rectificación, supresión y portabilidad de sus datos, y la limitación u oposición a su tratamiento, a retirar el consentimiento prestado y a reclamar a la AEPD., en la dirección\n"
+"                                de la empresa, sita en Calle Esmeralda, s/n, C.P.14014, Córdoba, España."
 
 #. module: raya_customize
 #: view:website:raya_customize.picking_footer
@@ -135,6 +89,15 @@ msgid "Comment"
 msgstr "Observaciones"
 
 #. module: raya_customize
+#: help:stock.move,qty_available:0
+msgid "Current quantity of products.\n"
+"In a context with a single Stock Location, this includes goods stored at this Location, or any of its children.\n"
+"In a context with a single Warehouse, this includes goods stored in the Stock Location of this Warehouse, or any of its children.\n"
+"stored in the Stock Location of the Warehouse of this Shop, or any of its children.\n"
+"Otherwise, this includes goods stored in any Stock Location with 'internal' type."
+msgstr "Cantidad actual de los productos.\nEn un contexto de una sola ubicación de existencias, esto incluye los bienes almacenados en esta ubicación, o cualquiera de sus hijas.\nEn un contexto de un solo almacén, esto incluye los bienes almacenados en la ubicación de existencias de ese almacén, o cualquiera de sus hijas.\nEn cualquier otro caso, esto incluye los bienes almacenados en cualquier ubicación de existencias de tipo 'Interna'."
+
+#. module: raya_customize
 #: view:website:print_formats_stock.picking_lines
 msgid "Destination"
 msgstr "Destino"
@@ -143,18 +106,6 @@ msgstr "Destino"
 #: view:website:print_formats_stock.picking_header
 msgid "Devolution"
 msgstr "Devolución"
-
-#. module: raya_customize
-#: code:addons/raya_customize/tests/test_report_account.py:118
-#, python-format
-msgid "Does not exist any account tax with '21' in name."
-msgstr "Does not exist any account tax with '21' in name."
-
-#. module: raya_customize
-#: code:addons/raya_customize/tests/test_report.py:148
-#, python-format
-msgid "Does not exist pack_operation_ids for this picking."
-msgstr "Does not exist pack_operation_ids for this picking."
 
 #. module: raya_customize
 #: view:website:print_formats_account.invoice_header
@@ -193,6 +144,19 @@ msgid "Fiscal Position"
 msgstr "Posición Fiscal"
 
 #. module: raya_customize
+#: field:stock.move,virtual_available:0
+msgid "Forecast Quantity"
+msgstr "Cantidad Prevista"
+
+#. module: raya_customize
+#: help:stock.move,virtual_available:0
+msgid "Forecast quantity (computed as Quantity On Hand - Outgoing + Incoming)\n"
+"In a context with a single Stock Location, this includes goods stored in this location, or any of its children.\n"
+"In a context with a single Warehouse, this includes goods stored in the Stock Location of this Warehouse, or any of its children.\n"
+"Otherwise, this includes goods stored in any Stock Location with 'internal' type."
+msgstr "Cantidad prevista (calculada como cantidad a mano - saliente + entrante)\nEn un contexto de una sola ubicación de existencias, esto incluye los bienes almacenados en esta ubicación, o cualquiera de sus hijas.\nEn un contexto de un solo almacén, esto incluye los bienes almacenados en la ubicación de existencias de ese almacén, o cualquiera de sus hijas.\nEn cualquier otro caso, esto incluye los bienes almacenados en cualquier ubicación de existencias de tipo 'Interna'."
+
+#. module: raya_customize
 #: view:website:print_formats_account.invoice_subheader
 #: view:website:print_formats_sale.saleorder_subheader
 msgid "IBAN"
@@ -207,7 +171,7 @@ msgstr "IVA"
 #. module: raya_customize
 #: field:pos.category,internal_categ_id:0
 msgid "Internal category Id"
-msgstr "Categ. interna"
+msgstr "Internal category Id"
 
 #. module: raya_customize
 #: view:website:print_formats_account.invoice_header
@@ -336,9 +300,13 @@ msgstr "Servicios"
 
 #. module: raya_customize
 #: view:website:print_formats_account.invoice_lines
-#: view:website:print_formats_stock.picking_lines
 msgid "Source"
 msgstr "Origen"
+
+#. module: raya_customize
+#: model:ir.model,name:raya_customize.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de existencias"
 
 #. module: raya_customize
 #: view:website:print_formats_stock.picking_header
@@ -453,3 +421,4 @@ msgstr "print_formats_sale.external_layout"
 #: view:website:print_formats_stock.report_picking_print_formats_stock_document
 msgid "print_formats_stock.external_layout"
 msgstr "print_formats_stock.external_layout"
+
