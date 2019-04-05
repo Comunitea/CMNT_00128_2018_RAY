@@ -124,6 +124,12 @@ msgid "Cancelled Invoice"
 msgstr "Factura Cancelada"
 
 #. module: raya_customize
+#: view:account.invoice:raya_customize.view_account_invoice_filter_add_payment_responsible
+#: field:account.invoice,payment_responsible_id:0
+msgid "Collector"
+msgstr "Cobrador"
+
+#. module: raya_customize
 #: view:website:print_formats_account.invoice_footer
 msgid "Comment"
 msgstr "Observaciones"

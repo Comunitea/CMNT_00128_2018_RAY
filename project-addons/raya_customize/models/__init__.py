@@ -5,3 +5,4 @@ from . import point_of_sale
 from . import product
 from . import sale
 from . import stock_picking
+from . import invoice

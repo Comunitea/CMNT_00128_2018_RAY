@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="invoice_tree_add_payment_responsible" model="ir.ui.view">
+            <field name="name">account.invoice.tree.payment_responsible</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="payment_responsible_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="invoice_form_add_payment_responsible" model="ir.ui.view">
+            <field name="name">account.invoice.form.payment_responsible</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="payment_responsible_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_account_invoice_filter_add_payment_responsible" model="ir.ui.view">
+            <field name="name">account.invoice.select.payment_responsible</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="payment_responsible_id"/>
+                </field>
+                <filter string="Salesperson" position="after">
+                    <filter string="Collector" context="{'group_by':'payment_responsible_id'}"/>
+                </filter>
+            </field>
+        </record>
+
+    </data>
+</openerp>
